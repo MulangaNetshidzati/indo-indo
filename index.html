@@ -15,21 +15,20 @@
     }
 
     body {
-      background-color: #F9F3EA; /* soft beige base */
+      background-color: #F9F3EA;
       color: #3E2C1B;
       line-height: 1.5;
     }
 
-    /* Batik pattern overlay (subtle) */
+    /* ===== BATIK BACKGROUND PATTERN ===== */
     .batik-bg {
-      background-image: radial-gradient(circle at 20% 30%, rgba(190, 110, 70, 0.06) 2px, transparent 2px),
-                        radial-gradient(circle at 80% 70%, rgba(160, 80, 45, 0.06) 3px, transparent 3px),
-                        repeating-linear-gradient(45deg, rgba(200, 120, 70, 0.02) 0px, rgba(200, 120, 70, 0.02) 2px, 
-                                                  transparent 2px, transparent 8px);
-      background-size: 60px 60px, 100px 100px, 30px 30px;
+      background-color: #F9F3EA;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400"><path fill="%23C36A4A" opacity="0.08" d="M200 0 L260 80 L340 80 L280 160 L340 240 L260 240 L200 320 L140 240 L60 240 L120 160 L60 80 L140 80 Z M200 40 L160 100 L100 100 L140 160 L100 220 L160 220 L200 280 L240 220 L300 220 L260 160 L300 100 L240 100 Z M200 100 L180 130 L150 130 L170 160 L150 190 L180 190 L200 220 L220 190 L250 190 L230 160 L250 130 L220 130 Z"/><path fill="%23A5533A" opacity="0.05" d="M0 100 Q50 50 100 100 T200 100 T300 100 T400 100 L400 150 Q350 200 300 150 T200 150 T100 150 T0 150 Z M0 300 Q50 250 100 300 T200 300 T300 300 T400 300 L400 350 Q350 400 300 350 T200 350 T100 350 T0 350 Z"/><circle cx="100" cy="200" r="8" fill="%23C36A4A" opacity="0.06"/><circle cx="300" cy="200" r="8" fill="%23C36A4A" opacity="0.06"/><circle cx="200" cy="100" r="6" fill="%23A5533A" opacity="0.05"/><circle cx="200" cy="300" r="6" fill="%23A5533A" opacity="0.05"/><path fill="%23C36A4A" opacity="0.04" d="M120 180 L140 160 L160 180 L140 200 Z M240 180 L260 160 L280 180 L260 200 Z M120 220 L140 200 L160 220 L140 240 Z M240 220 L260 200 L280 220 L260 240 Z"/></svg>');
+      background-repeat: repeat;
+      background-size: 300px 300px;
+      background-position: center;
     }
 
-    /* Terracotta & beige palette */
     :root {
       --terracotta: #C36A4A;
       --terracotta-dark: #A5533A;
@@ -45,13 +44,13 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 5%;
-      background: rgba(249, 243, 234, 0.85);
-      backdrop-filter: blur(6px);
+      background: rgba(249, 243, 234, 0.92);
+      backdrop-filter: blur(8px);
       border-bottom: 2px dashed var(--terracotta-light);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 4px 12px rgba(190, 110, 70, 0.08);
+      box-shadow: 0 4px 12px rgba(190, 110, 70, 0.1);
       flex-wrap: wrap;
     }
 
@@ -106,7 +105,6 @@
       color: var(--terracotta-dark);
     }
 
-    /* login/signup special */
     .nav-auth {
       display: flex;
       gap: 0.8rem;
@@ -153,176 +151,120 @@
       transform: scale(1.02);
     }
 
-    /* ===== HERO SLIDESHOW ===== */
+    /* ===== FULLSCREEN HERO SLIDESHOW ONLY ===== */
     .slideshow-container {
       position: relative;
-      max-width: 1400px;
-      margin: 1.5rem auto;
-      border-radius: 32px;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(100, 60, 30, 0.15);
-      border: 1px solid var(--beige-dark);
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
     }
 
     .slides {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.6s ease-in-out;
+      height: 100%;
     }
 
     .slide {
       min-width: 100%;
+      height: 100%;
       position: relative;
-      height: 480px;
       background-size: cover;
       background-position: center;
       display: flex;
-      align-items: flex-end;
-      padding: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
     }
 
     .slide::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(70, 40, 20, 0.6) 0%, rgba(249, 243, 234, 0.1) 70%);
+      background: linear-gradient(135deg, rgba(70, 40, 20, 0.75) 0%, rgba(160, 80, 45, 0.35) 100%);
       pointer-events: none;
+      z-index: 1;
     }
 
     .slide-content {
       position: relative;
       z-index: 2;
       color: white;
-      max-width: 600px;
-      text-shadow: 0 4px 16px rgba(0,0,0,0.5);
+      max-width: 900px;
+      text-align: center;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(2px);
+      border-radius: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .slide-content h1 {
-      font-size: 3.2rem;
-      font-weight: 700;
-      line-height: 1.2;
+      font-size: 4.5rem;
+      font-weight: 800;
+      line-height: 1.1;
       letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
 
     .slide-content p {
-      font-size: 1.3rem;
+      font-size: 1.6rem;
       opacity: 0.95;
-      margin-bottom: 1.2rem;
+      margin-bottom: 2.2rem;
+      font-weight: 300;
     }
 
     .slide-btn {
       background: var(--terracotta);
       color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
+      padding: 1rem 3rem;
+      border-radius: 60px;
       font-weight: 600;
+      font-size: 1.2rem;
       text-decoration: none;
       display: inline-block;
       border: 2px solid white;
-      transition: 0.2s;
+      transition: 0.25s;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .slide-btn:hover {
       background: white;
       color: var(--terracotta-dark);
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     }
 
-    /* navigation dots */
     .dots {
       position: absolute;
-      bottom: 18px;
+      bottom: 40px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 12px;
+      gap: 16px;
       z-index: 10;
     }
 
     .dot {
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
-      background: rgba(255,255,240,0.7);
+      background: rgba(255, 255, 240, 0.6);
       border: 2px solid var(--terracotta);
       cursor: pointer;
-      transition: 0.2s;
+      transition: 0.3s;
     }
 
     .dot.active {
       background: var(--terracotta);
-      transform: scale(1.2);
-    }
-
-    /* ===== LANDING PAGE SECTIONS ===== */
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 5%;
-    }
-
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: var(--terracotta-dark);
-      margin: 3rem 0 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      border-left: 8px solid var(--terracotta);
-      padding-left: 1.2rem;
-    }
-
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .feature-card {
-      background: #fffaf3;
-      border-radius: 24px;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      border: 2px solid var(--beige-dark);
-      transition: 0.2s;
-      box-shadow: 0 10px 20px rgba(190, 110, 70, 0.05);
-    }
-
-    .feature-card i {
-      font-size: 2.5rem;
-      color: var(--terracotta);
-      margin-bottom: 1rem;
-    }
-
-    .feature-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .feature-card p {
-      color: #6b4e36;
-    }
-
-    .batik-strip {
-      background: var(--terracotta);
-      padding: 1rem 0;
-      margin: 2rem 0;
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-      color: #F9F3EA;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      border-top: 6px solid var(--terracotta-dark);
-      border-bottom: 6px solid var(--terracotta-dark);
-      font-size: 1.2rem;
-    }
-
-    .batik-strip i {
-      margin-right: 8px;
+      transform: scale(1.3);
+      box-shadow: 0 0 20px rgba(195, 106, 74, 0.8);
     }
 
     /* ===== FOOTER ===== */
@@ -330,8 +272,10 @@
       background: #2E241C;
       color: #EBE0D3;
       padding: 3rem 5% 2rem;
-      margin-top: 4rem;
+      margin-top: 0;
       border-top: 10px solid var(--terracotta);
+      position: relative;
+      z-index: 5;
     }
 
     .footer-grid {
@@ -411,88 +355,27 @@
       color: var(--terracotta-light);
     }
 
-    /* ===== SEARCH BUTTON (shop preview) ===== */
-    .search-section {
-      display: flex;
-      justify-content: flex-end;
-      margin: 1rem 0 2rem;
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .slide-content h1 { font-size: 3rem; }
+      .slide-content p { font-size: 1.2rem; }
+      .slide-content { padding: 1.5rem; }
     }
 
-    .search-btn {
-      background: var(--beige-dark);
-      border: 2px solid var(--terracotta);
-      color: var(--terracotta-dark);
-      padding: 0.8rem 1.8rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      cursor: pointer;
-      transition: 0.15s;
-    }
-
-    .search-btn:hover {
-      background: var(--terracotta);
-      color: white;
-    }
-
-    .search-btn i {
-      font-size: 1.2rem;
-    }
-
-    /* shop preview cards */
-    .shop-preview {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      margin: 1.5rem 0 2rem;
-    }
-
-    .preview-card {
-      background: #fffaf3;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 2px solid var(--beige-dark);
-      text-align: center;
-      padding-bottom: 1.2rem;
-      transition: 0.2s;
-    }
-
-    .preview-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--terracotta-light);
-    }
-
-    .preview-card .img-placeholder {
-      height: 150px;
-      background: var(--terracotta-light);
-      background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 5px, transparent 5px, transparent 10px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2rem;
-    }
-
-    .preview-card h4 {
-      margin: 0.8rem 0 0.3rem;
-      font-size: 1.2rem;
-    }
-
-    /* responsiveness */
-    @media (max-width: 800px) {
-      .slide-content h1 { font-size: 2.2rem; }
-      .slide { height: 380px; }
+    @media (max-width: 700px) {
       .navbar { flex-direction: column; gap: 0.8rem; }
       .nav-links { justify-content: center; }
+      .slide-content h1 { font-size: 2.2rem; }
+      .slide-content p { font-size: 1rem; }
+      .slide-btn { padding: 0.8rem 2rem; font-size: 1rem; }
+      .slideshow-container { min-height: 500px; height: 90vh; }
+      .dots { bottom: 20px; }
     }
 
-    @media (max-width: 500px) {
-      .slide { height: 300px; padding: 1.5rem; }
+    @media (max-width: 450px) {
       .slide-content h1 { font-size: 1.7rem; }
-      .slide-content p { font-size: 1rem; }
+      .slide-content p { font-size: 0.9rem; }
+      .slide-content { padding: 1rem; }
     }
   </style>
 </head>
@@ -514,8 +397,8 @@
     </div>
   </nav>
 
-  <!-- ===== HERO SLIDESHOW ===== -->
-  <div class="slideshow-container">
+  <!-- ===== FULLSCREEN SLIDESHOW (ONLY LANDING CONTENT) ===== -->
+  <div id="home" class="slideshow-container">
     <div class="slides" id="slides">
       <!-- slide 1 -->
       <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1539008835657-9e8e9680c956?q=80&w=1587&auto=format&fit=crop');">
@@ -545,112 +428,8 @@
     <div class="dots" id="dots"></div>
   </div>
 
-  <!-- ===== LANDING CONTENT ===== -->
-  <div class="container">
-    <!-- featured icons -->
-    <div class="featured-grid">
-      <div class="feature-card">
-        <i class="fa-solid fa-leaf"></i>
-        <h3>Batik heritage</h3>
-        <p>Hand-stamped & printed with love</p>
-      </div>
-      <div class="feature-card">
-        <i class="fa-solid fa-credit-card"></i>
-        <h3>Secure payments</h3>
-        <p>Apple Pay · EFT · Card</p>
-      </div>
-      <div class="feature-card">
-        <i class="fa-solid fa-truck-fast"></i>
-        <h3>Fast delivery</h3>
-        <p>Across South Africa</p>
-      </div>
-    </div>
-
-    <!-- batik strip -->
-    <div class="batik-strip">
-      <span><i class="fa-solid fa-star"></i> Terracotta tones</span>
-      <span><i class="fa-solid fa-palette"></i> Beige & batik</span>
-      <span><i class="fa-solid fa-heart"></i> Indo-indo love</span>
-    </div>
-
-    <!-- ===== SHOP PREVIEW (with search button) ===== -->
-    <div id="shop" class="section-title">
-      <i class="fa-solid fa-store"></i> Shop preview
-    </div>
-
-    <!-- search button (shop page teaser) -->
-    <div class="search-section">
-      <button class="search-btn" onclick="alert('🔍 Search page — full shop coming soon!')">
-        <i class="fa-solid fa-magnifying-glass"></i> Search clothes
-      </button>
-    </div>
-
-    <!-- quick filter/category cards -->
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.8rem;">
-      <span style="background: var(--terracotta); color: white; padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 500;"><i class="fa-solid fa-vest"></i> Tops</span>
-      <span style="background: var(--terracotta-light); color: white; padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 500;"><i class="fa-solid fa-socks"></i> Bottoms</span>
-      <span style="background: var(--beige-dark); color: var(--brown); padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 500;"><i class="fa-solid fa-person"></i> Men</span>
-      <span style="background: var(--beige-dark); color: var(--brown); padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 500;"><i class="fa-solid fa-person-dress"></i> Women</span>
-    </div>
-
-    <!-- product grid preview -->
-    <div class="shop-preview">
-      <div class="preview-card">
-        <div class="img-placeholder"><i class="fa-solid fa-shirt"></i></div>
-        <h4>Batik shirt</h4>
-        <p style="color: var(--terracotta); font-weight: 600;">R 450</p>
-      </div>
-      <div class="preview-card">
-        <div class="img-placeholder"><i class="fa-solid fa-vest"></i></div>
-        <h4>Terracotta top</h4>
-        <p style="color: var(--terracotta); font-weight: 600;">R 390</p>
-      </div>
-      <div class="preview-card">
-        <div class="img-placeholder"><i class="fa-solid fa-socks"></i></div>
-        <h4>Linen pants</h4>
-        <p style="color: var(--terracotta); font-weight: 600;">R 520</p>
-      </div>
-      <div class="preview-card">
-        <div class="img-placeholder"><i class="fa-solid fa-person-dress"></i></div>
-        <h4>Batik dress</h4>
-        <p style="color: var(--terracotta); font-weight: 600;">R 680</p>
-      </div>
-    </div>
-
-    <!-- ===== CONTACT SECTION ===== -->
-    <div id="contact" class="section-title">
-      <i class="fa-solid fa-address-card"></i> Contact
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; background: #fffaf3; padding: 2rem; border-radius: 30px; border: 2px solid var(--beige-dark);">
-      <div>
-        <h3 style="color: var(--terracotta-dark); margin-bottom: 1rem;"><i class="fa-solid fa-phone"></i> Phone</h3>
-        <p style="font-size: 1.3rem; font-weight: 500;">081 711 7190</p>
-      </div>
-      <div>
-        <h3 style="color: var(--terracotta-dark); margin-bottom: 1rem;"><i class="fa-solid fa-envelope"></i> Email</h3>
-        <p style="font-size: 1.2rem;">tiyani.m35@gmail.com</p>
-      </div>
-      <div>
-        <h3 style="color: var(--terracotta-dark); margin-bottom: 1rem;"><i class="fa-solid fa-share-nodes"></i> Social</h3>
-        <div class="social-icons" style="margin-top: 0.2rem;">
-          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- note about ordering (login redirect) -->
-    <div style="background: var(--beige-dark); border-left: 8px solid var(--terracotta); padding: 1.5rem 2rem; border-radius: 20px; margin: 2.5rem 0;">
-      <p style="font-size: 1.1rem;"><i class="fa-solid fa-lock" style="color: var(--terracotta); margin-right: 0.8rem;"></i> 
-      <strong>Ready to order?</strong> You'll be redirected to <strong>sign in / sign up</strong> to complete your purchase securely.</p>
-    </div>
-  </div>
-
-  <!-- ===== FOOTER (with terms & conditions) ===== -->
-  <footer>
+  <!-- ===== FOOTER (with terms, social, contact) ===== -->
+  <footer id="contact">
     <div class="footer-grid">
       <div class="footer-col">
         <h4><i class="fa-solid fa-shirt"></i> Indo-indo</h4>
@@ -725,45 +504,93 @@
         goToSlide(currentIndex);
       }
 
-      // auto advance every 5 seconds
-      let interval = setInterval(nextSlide, 5000);
+      // auto advance every 5.5 seconds
+      let interval = setInterval(nextSlide, 5500);
 
       // pause on hover
       const container = document.querySelector('.slideshow-container');
       container.addEventListener('mouseenter', () => clearInterval(interval));
       container.addEventListener('mouseleave', () => {
-        interval = setInterval(nextSlide, 5000);
+        interval = setInterval(nextSlide, 5500);
       });
 
-      // optional: swipe / touch not implemented for simplicity
+      // keyboard navigation (left/right arrows)
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+          goToSlide(currentIndex);
+        } else if (e.key === 'ArrowRight') {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          goToSlide(currentIndex);
+        }
+      });
     })();
   </script>
 
-  <!-- note: any "order" button would redirect to login/signup — we simulate with alert on some elements -->
+  <!-- ===== REDIRECT ON ORDER INTENT ===== -->
   <script>
-    // simulate redirect on "order" or any purchase attempt
-    document.querySelectorAll('.slide-btn, .preview-card, .search-btn').forEach(el => {
-      if (el.classList.contains('slide-btn') || el.classList.contains('preview-card') || el.classList.contains('search-btn')) {
-        // but we want normal navigation for slide-btn (shop) — no redirect needed.
-        // just for demonstration: if user clicks on preview card, show redirect message
-      }
-    });
-
-    // attach redirect message for product cards & any order intent
-    const previewCards = document.querySelectorAll('.preview-card');
-    previewCards.forEach(card => {
-      card.addEventListener('click', (e) => {
-        e.preventDefault();
-        alert('🔐 To order, you will be redirected to sign in / sign up page.');
+    // When a user tries to "order" by clicking a slide button (shop now),
+    // we simulate a redirect to sign-in/sign-up.
+    // In a real app, these would link to shop page, then order triggers auth.
+    // Here, we intercept the click on the slide buttons to demonstrate the redirect.
+    document.querySelectorAll('.slide-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // If the button says "Shop collection" or "Shop now", we can either go to #shop
+        // But the client wants: "when a client wants to order it should open be redirected to the sigh in or sign up page."
+        // We'll show a confirmation that they'll be redirected, then simulate.
+        // Since the href is #shop, we prevent default to demonstrate redirect behaviour.
+        // But the user asked for a landing page ONLY with slideshow, so we need the shop link to still work?
+        // The landing page has no shop section, but navbar has Shop link. We'll keep the slide buttons going to #shop,
+        // but we add a message that ordering redirects to auth.
+        // To be safe, we'll let the default anchor work but if it's an order intent, we redirect to login page.
+        // We'll simulate the redirect by showing an alert and then redirecting to a login page (or just an alert).
+        // Since we don't have a separate login page, we'll just alert and prevent default.
+        // But for user experience, we want the shop button to still navigate.
+        // We'll add a separate "Order now" button inside slides? No, that's overkill.
+        // Given the instruction: "when a client wants to order it shold open be redirected to the sigh in or sign up page"
+        // We can attach this to any product click. Since there are no products on landing (only slideshow),
+        // we can add a small "Order sample" or just keep the slide buttons as "Shop collection" which goes to #shop.
+        // However, the footer and nav have shop links. To satisfy the requirement, we'll make any "Shop" button
+        // that would lead to purchase trigger a redirect to login. But the slide button says "Shop collection" — it's not an order yet.
+        // We'll add a separate "Order" intent: clicking the main call-to-action in slides will redirect to login.
+        // Let's change the slide buttons to have an additional order behavior: after clicking, ask if they want to order?
+        // Actually, we can make the slide button go to a hypothetical #order, which triggers redirect.
+        // To keep it clean, we'll just add an alert for demonstration.
+        // But we must respect the current href. We'll enhance:
+        // On click, show a message that they will be redirected to sign in to order.
+        // Then after a short delay, redirect to a login page (we don't have one, so we'll just alert).
+        // We'll just use alert to simulate.
+        const href = btn.getAttribute('href');
+        if (href === '#shop') {
+          // simulate redirect to login page for ordering
+          e.preventDefault();
+          alert('🔐 To order, you will be redirected to the sign in / sign up page.');
+          // In a real app: window.location.href = '/login';
+        }
       });
-      card.style.cursor = 'pointer';
     });
 
-    // extra: search button already alerts; also add redirect if user tries to order via shop button? 
-    // The slide buttons already go to #shop. 
-    // Additional "shop now" button inside slide could also trigger login redirect on ordering intent,
-    // but we keep it simple as per client request "when a client wants to order it should open be redirected to sign in or sign up"
-    // we handle on product cards.
+    // Also, clicking the "Login" or "Sign up" nav buttons will just alert (simulate)
+    document.querySelectorAll('.btn-outline, .btn-solid').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const text = btn.innerText.trim();
+        if (text.includes('Login')) {
+          alert('🔐 Login page (simulated) — Supabase auth.');
+        } else if (text.includes('Sign up')) {
+          alert('✨ Sign up page (simulated) — Supabase auth.');
+        }
+      });
+    });
+
+    // Shop link in nav and footer: we'll just let them go to #shop, but #shop doesn't exist anymore.
+    // To avoid broken anchors, we'll redirect to home or show a message.
+    document.querySelectorAll('a[href="#shop"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('🛍️ Shop page (coming soon) — you will need to log in to order.');
+      });
+    });
   </script>
 </body>
 </html>
